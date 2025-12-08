@@ -23,10 +23,12 @@ if ch=='1':
             nd=input(f"\n\tType Y if you want to see data of next person name {n}")
             if nd.lower!='y':
                 for k in range(ct+1,len(l)):
-                    l1.append(l[k])
+                    l1.append(l[k])                    
                 break
+        if ct+1==len(l):
+            print(f"\n\tNo more student with {n} name")
         else:
-            l1.append[i]
+            l1.append(i)
         ct=ct+1
     f.close()
     if stat==0:
@@ -38,10 +40,16 @@ if ch=='1':
 if ch=='2':
     r=input("\n\tPlease enter the roll no by which you want to delete the data: ")
     for i in d:
-        if i[d]==r:
+        if i[0]==r:
             print(t.tabulate([i],headers=("Roll_No","Name","Age"),tablefmt="grid"))
             dc=input("\n\tType yes if you want to delete this data: ")
             if dc.lower()=='yes':
                 print("\n\tData deleted!!!")
             else:
-                l1.append[i]
+                l1.append(i)
+    f=open("records1.csv","w",newline="")
+    ne=csv.writer(f)
+    ne.writerows(l1)
+    f.close()
+else:
+    print("\n\t\tInvalid option selected")
